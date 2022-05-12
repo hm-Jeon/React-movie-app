@@ -1,0 +1,57 @@
+@import "../../css/mixin.scss";
+
+.movie {
+  display: flex;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+  @include boxShadow;
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+
+  @media screen and (max-width: 1400px) {
+    margin-bottom: 0;
+  }
+
+  & > .cover {
+    height: 345px;
+  }
+
+  & > .details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1rem;
+
+    & > .title {
+      font-size: 2rem;
+    }
+
+    & > .year {
+      margin-top: 0.2em;
+    }
+
+    & > .summary {
+      margin: 0.5em 0;
+    }
+
+    @include genres;
+
+    & > .details__bottom {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      height: 100%;
+      padding-top: 1rem;
+
+      & > .rating {
+        @include rating;
+      }
+    }
+  }
+}
+
+@include ratingBgColor;

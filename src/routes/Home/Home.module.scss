@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  & > .header {
+    padding: 5rem 0;
+
+    & > .logo {
+      font-size: 5rem;
+    }
+  }
+
+  & > .loading {
+    font-size: 2rem;
+  }
+
+  & > .movieList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+    padding: 0 10rem 5rem;
+
+    @media screen and (max-width: 1600px) {
+      padding: 0 5rem 5rem;
+    }
+
+    @media screen and (max-width: 1400px) {
+      grid-template-columns: 1fr;
+      grid-gap: 2rem;
+      padding: 0 15rem 5rem;
+    }
+
+    @media screen and (max-width: 1200px) {
+      padding: 0 10rem 5rem;
+    }
+
+    @media screen and (max-width: 1000px) {
+      padding: 0 5rem 5rem;
+    }
+  }
+}

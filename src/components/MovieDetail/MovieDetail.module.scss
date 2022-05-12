@@ -1,0 +1,156 @@
+@import "../../css/mixin.scss";
+
+.container {
+  width: min-content;
+}
+
+.loading {
+  font-size: 2em;
+
+  &.loaded {
+    display: none;
+  }
+}
+
+.movieDetail {
+  display: none;
+  background-color: #ffffff;
+  flex-direction: column;
+  @include boxShadow;
+
+  &:hover {
+    & > .detail__cover {
+      & > .bgImage {
+        filter: grayscale(0%);
+      }
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 0.8rem;
+  }
+
+  &.loaded {
+    display: flex;
+  }
+
+  & > .detail__cover {
+    position: relative;
+
+    & > .bgImage {
+      display: block;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease-in-out;
+
+      @media screen and (max-width: 1200px) {
+        width: 800px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        width: 700px;
+      }
+
+      @media screen and (max-width: 900px) {
+        width: 600px;
+      }
+    }
+
+    & > .cover {
+      position: absolute;
+      bottom: -20px;
+      left: 20px;
+
+      @media screen and (max-width: 1200px) {
+        width: 200px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        width: 180px;
+      }
+
+      @media screen and (max-width: 900px) {
+        width: 160px;
+      }
+    }
+
+    & > .title {
+      position: absolute;
+      bottom: 20px;
+      left: 270px;
+      right: 20px;
+      font-size: 3em;
+      line-height: 0.8em;
+      color: #ffffff;
+
+      @media screen and (max-width: 1200px) {
+        left: 240px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        left: 220px;
+      }
+
+      @media screen and (max-width: 900px) {
+        left: 200px;
+      }
+    }
+  }
+
+  & > .detail__details {
+    padding: 30px 20px 20px;
+
+    & > .detail__details_top {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      & > .year {
+        font-size: 2em;
+      }
+
+      & > .info {
+        display: flex;
+        padding: 0 1em;
+
+        & > .runtime {
+          margin-right: 1em;
+        }
+
+        @include genres;
+      }
+
+      & > .rating {
+        @include rating;
+        position: absolute;
+        top: -0.4em;
+        right: 0px;
+      }
+    }
+
+    & > .detail__details_mid {
+      display: flex;
+      margin: 0.5em 0 1em;
+
+      & > .like {
+        @include detailsMidBtn(#5468ff);
+        margin-right: 0.5em;
+      }
+
+      & > .youtube {
+        @include detailsMidBtn(#ff0000);
+      }
+    }
+
+    & > .detail__details_low {
+      & > .description {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+@include ratingBgColor;

@@ -1,0 +1,51 @@
+@mixin boxShadow {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+@mixin rating {
+  padding: 0.2em 0.4em;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+@mixin ratingBgColor {
+  .score__very_high {
+    background-color: #f9a602;
+  }
+
+  .score__high {
+    background-color: #00a86b;
+  }
+
+  .score__mid {
+    background-color: #4682b4;
+  }
+
+  .score__low {
+    background-color: #c21b07;
+  }
+}
+
+@mixin genres {
+  & > .genres {
+    display: flex;
+
+    & > .genre {
+      margin-right: 0.5em;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@mixin detailsMidBtn($bgColor) {
+  display: block;
+  padding: 0.2em 0.4em;
+  font-size: 1.2em;
+  color: #ffffff;
+  background-color: $bgColor;
+  cursor: pointer;
+}

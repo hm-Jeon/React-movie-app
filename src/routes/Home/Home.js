@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Movie from "../components/Movie";
-import styles from "../css/Home/Home.module.css";
+import Movie from "../../components/Movie/Movie";
+import styles from "./Home.module.scss";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -21,9 +21,12 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h1 className={styles.logo}>Nomad Movies</h1>
+      </div>
       {loading ? (
-        <h2>Loading...</h2>
+        <h2 className={styles.loading}>Loading...</h2>
       ) : (
         <div className={styles.movieList}>
           {movies.map(movie => (
@@ -31,9 +34,11 @@ function Home() {
               key={movie.id}
               id={movie.id}
               coverImg={movie.medium_cover_image}
-              title={movie.title_long}
+              title={movie.title}
+              year={movie.year}
               summary={movie.summary}
               genres={movie.genres}
+              rating={movie.rating}
             />
           ))}
         </div>
