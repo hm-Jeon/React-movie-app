@@ -1,0 +1,12 @@
+body {
+  background-color: #f0f0f0;
+}
+
+body #root {
+  font-family: "koulen";
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+/*# sourceMappingURL=styles.css.map */
