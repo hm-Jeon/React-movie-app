@@ -22,9 +22,6 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <h1 className={styles.logo}>Nomad Movies</h1>
-      </div>
       {loading ? (
         <h2 className={styles.loading}>Loading...</h2>
       ) : (

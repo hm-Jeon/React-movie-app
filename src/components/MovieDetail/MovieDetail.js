@@ -1,5 +1,6 @@
 import styles from "./MovieDetail.module.scss";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function MovieDetail({
   title,
@@ -15,71 +16,76 @@ function MovieDetail({
 }) {
   const imageLoaded = () => {
     document
-      .getElementsByClassName(styles.movieDetail)[0]
-      .classList.add(styles.loaded);
+      .getElementsByClassName(styles.loaded)[0]
+      .classList.add(styles.imgLoaded);
 
     document
       .getElementsByClassName(styles.loading)[0]
-      .classList.add(styles.loaded);
+      .classList.add(styles.imgLoaded);
   };
 
   return (
     <div className={styles.container}>
       <h2 className={styles.loading}>Loading...</h2>
-      <div className={styles.movieDetail}>
-        <div className={styles.detail__cover}>
-          <img
-            src={bgImage}
-            className={styles.bgImage}
-            alt={title}
-            onLoad={imageLoaded}
-          />
-          <img src={cover} className={styles.cover} alt={title} />
-          <h2 className={styles.title}>{title}</h2>
-        </div>
-        <div className={styles.detail__details}>
-          <div className={styles.detail__details_top}>
-            <span className={styles.year}>{year}</span>
-            <div className={styles.info}>
-              {runtime === 0 ? null : (
-                <span className={styles.runtime}>{runtime} Min</span>
-              )}
-              <ul className={styles.genres}>
-                {genres.map(genre => (
-                  <li key={genre} className={styles.genre}>
-                    {genre}
-                  </li>
-                ))}
-              </ul>
+      <div className={styles.loaded}>
+        <Link to={"/"} className={styles.back}>
+          {"< Back"}
+        </Link>
+        <div className={styles.movieDetail}>
+          <div className={styles.detail__cover}>
+            <img
+              src={bgImage}
+              className={styles.bgImage}
+              alt={title}
+              onLoad={imageLoaded}
+            />
+            <img src={cover} className={styles.cover} alt={title} />
+            <h2 className={styles.title}>{title}</h2>
+          </div>
+          <div className={styles.detail__details}>
+            <div className={styles.detail__details_top}>
+              <span className={styles.year}>{year}</span>
+              <div className={styles.info}>
+                {runtime === 0 ? null : (
+                  <span className={styles.runtime}>{runtime} Min</span>
+                )}
+                <ul className={styles.genres}>
+                  {genres.map(genre => (
+                    <li key={genre} className={styles.genre}>
+                      {genre}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <span
+                className={`${styles.rating} ${
+                  rating >= 9
+                    ? styles.score__very_high
+                    : rating >= 8
+                    ? styles.score__high
+                    : rating >= 7
+                    ? styles.score__mid
+                    : styles.score__low
+                }`}
+              >
+                {rating}
+              </span>
             </div>
-            <span
-              className={`${styles.rating} ${
-                rating >= 9
-                  ? styles.score__very_high
-                  : rating >= 8
-                  ? styles.score__high
-                  : rating >= 7
-                  ? styles.score__mid
-                  : styles.score__low
-              }`}
-            >
-              {rating}
-            </span>
-          </div>
-          <div className={styles.detail__details_mid}>
-            <span className={styles.like}>LIKE {like}</span>
-            <a
-              className={styles.youtube}
-              href={`https://www.youtube.com/watch?v=${youtube}`}
-              target="_blank"
-            >
-              Youtube
-            </a>
-          </div>
-          <div className={styles.detail__details_low}>
-            <p className={styles.description}>
-              {description.replaceAll("&#39;", "'").replaceAll("&quot;", '"')}
-            </p>
+            <div className={styles.detail__details_mid}>
+              <span className={styles.like}>LIKE {like}</span>
+              <a
+                className={styles.youtube}
+                href={`https://www.youtube.com/watch?v=${youtube}`}
+                target="_blank"
+              >
+                Youtube
+              </a>
+            </div>
+            <div className={styles.detail__details_low}>
+              <p className={styles.description}>
+                {description.replaceAll("&#39;", "'").replaceAll("&quot;", '"')}
+              </p>
+            </div>
           </div>
         </div>
       </div>

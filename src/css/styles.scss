@@ -1,16 +1,17 @@
 html {
-  width: 100vw;
+  width: 100%;
   min-width: 600px;
-  min-height: 100vh;
+  min-height: 100%;
   background-color: #f0f0f0;
 
   & > body {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
 
     #root {
+      display: flex;
       width: 100%;
-      min-height: 100vh;
+      min-height: 100%;
       font-family: "koulen";
       user-select: none;
     }

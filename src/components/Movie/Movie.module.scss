@@ -4,6 +4,7 @@
   display: flex;
   margin-bottom: 1rem;
   background-color: #ffffff;
+  font-size: 1rem;
   filter: grayscale(100%);
   transition: filter 0.3s ease-in-out;
   @include boxShadow;
@@ -16,18 +17,26 @@
     margin-bottom: 0;
   }
 
+  @media screen and (max-width: 700px) {
+    font-size: 0.8rem;
+  }
+
   & > .cover {
     height: 345px;
+
+    @media screen and (max-width: 700px) {
+      height: 250px;
+    }
   }
 
   & > .details {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding: 1rem;
+    padding: 1em;
 
     & > .title {
-      font-size: 2rem;
+      font-size: 2em;
     }
 
     & > .year {
@@ -45,7 +54,7 @@
       justify-content: flex-end;
       align-items: flex-end;
       height: 100%;
-      padding-top: 1rem;
+      padding-top: 1em;
 
       & > .rating {
         @include rating;
