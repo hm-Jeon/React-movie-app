@@ -22,8 +22,6 @@ function Detail() {
     getDetails();
   }, []);
 
-  // console.log(details);
-
   return (
     <div className={styles.container}>
       {loading ? (

@@ -18,7 +18,6 @@ function MovieDetail({
     document
       .getElementsByClassName(styles.loaded)[0]
       .classList.add(styles.imgLoaded);
-
     document
       .getElementsByClassName(styles.loading)[0]
       .classList.add(styles.imgLoaded);
