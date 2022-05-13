@@ -1,7 +1,7 @@
 @import "../../css/mixin.scss";
 
 .container {
-  width: min-content;
+  width: 100%;
 }
 
 .loading {
@@ -15,6 +15,7 @@
 .loaded {
   position: relative;
   display: none;
+  width: 100%;
 
   &.imgLoaded {
     display: block;
@@ -24,13 +25,13 @@
     font-size: 0.9rem;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 700px) {
     font-size: 0.8rem;
   }
 
   & > .back {
     position: absolute;
-    top: -2px;
+    top: -5px;
     transform: translateY(-100%);
     left: 5px;
     font-size: 1.5em;
@@ -39,6 +40,7 @@
   & > .movieDetail {
     display: flex;
     flex-direction: column;
+    width: 100%;
     background-color: #ffffff;
     @include boxShadow;
 
@@ -55,71 +57,37 @@
 
       & > .bgImage {
         display: block;
+        width: 100%;
         filter: grayscale(100%);
         transition: filter 0.3s ease-in-out;
-
-        @media screen and (max-width: 1200px) {
-          width: 800px;
-        }
-
-        @media screen and (max-width: 1000px) {
-          width: 700px;
-        }
-
-        @media screen and (max-width: 900px) {
-          width: 600px;
-        }
-
-        @media screen and (max-width: 700px) {
-          width: 500px;
-        }
       }
 
       & > .cover {
         position: absolute;
         bottom: -20px;
         left: 20px;
-
-        @media screen and (max-width: 1200px) {
-          width: 200px;
-        }
-
-        @media screen and (max-width: 1000px) {
-          width: 180px;
-        }
-
-        @media screen and (max-width: 900px) {
-          width: 160px;
-        }
-
-        @media screen and (max-width: 700px) {
-          width: 140px;
-        }
+        width: 25%;
       }
 
       & > .title {
         position: absolute;
         bottom: 20px;
-        left: 270px;
+        left: calc(25% + 40px);
         right: 20px;
         font-size: 3em;
         line-height: 0.8em;
         color: #ffffff;
 
-        @media screen and (max-width: 1200px) {
-          left: 240px;
-        }
-
-        @media screen and (max-width: 1000px) {
-          left: 220px;
-        }
-
         @media screen and (max-width: 900px) {
-          left: 200px;
+          bottom: 15px;
+          left: calc(25% + 35px);
+          right: 15px;
         }
 
         @media screen and (max-width: 700px) {
-          left: 180px;
+          bottom: 10px;
+          left: calc(25% + 30px);
+          right: 10px;
         }
       }
     }
