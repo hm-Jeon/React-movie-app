@@ -11,7 +11,7 @@ function App() {
       <div className={styles.header}>
         <h1 className={styles.logo}>Nomad Movies</h1>
       </div>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path="/movie/:id">
             <Detail />
