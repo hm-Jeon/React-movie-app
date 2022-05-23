@@ -1,6 +1,5 @@
 import styles from "./MovieDetail.module.scss";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 function MovieDetail({
   title,
@@ -27,9 +26,6 @@ function MovieDetail({
     <div className={styles.container}>
       <h2 className={styles.loading}>Loading...</h2>
       <div className={styles.loaded}>
-        <Link to={"/"} className={styles.back}>
-          {"< Back"}
-        </Link>
         <div className={styles.movieDetail}>
           <div className={styles.detail__cover}>
             <img
@@ -76,6 +72,7 @@ function MovieDetail({
                 className={styles.youtube}
                 href={`https://www.youtube.com/watch?v=${youtube}`}
                 target="_blank"
+                rel="noreferrer"
               >
                 Youtube
               </a>
