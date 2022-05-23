@@ -2,17 +2,23 @@ import { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import Movie from "../../components/Movie/Movie";
 import styles from "./Home.module.scss";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { pageAtom } from "../../atoms";
 
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [reloding, setReloading] = useState(true);
-  let { page } = useParams();
-  page = page === undefined ? "1" : page;
+  const page = useRecoilValue(pageAtom);
+  const setPage = useSetRecoilState(pageAtom);
 
   const pages = [...Array(10)].map((v, index) => index + 1);
+
+  const pageOnClick = item => {
+    setReloading(true);
+    setPage(item);
+  };
 
   const getMovies = async () => {
     const json = await (
@@ -29,8 +35,6 @@ function Home() {
     setLoading(true);
     getMovies();
   }, [page]);
-
-  console.log(movies);
 
   return (
     <div className={styles.container}>
@@ -60,7 +64,7 @@ function Home() {
                 className={`${styles.page} ${
                   item === +page ? styles.focus : null
                 }`}
-                onClick={() => setReloading(true)}
+                onClick={() => pageOnClick(item)}
               >
                 {item}
               </Link>

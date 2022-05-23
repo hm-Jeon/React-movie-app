@@ -1,5 +1,8 @@
 import styles from "./MovieDetail.module.scss";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { pageAtom } from "../../atoms";
 
 function MovieDetail({
   title,
@@ -22,10 +25,15 @@ function MovieDetail({
       .classList.add(styles.imgLoaded);
   };
 
+  const page = useRecoilValue(pageAtom);
+
   return (
     <div className={styles.container}>
       <h2 className={styles.loading}>Loading...</h2>
       <div className={styles.loaded}>
+        <Link className={styles.back} to={`/${page}`}>
+          {"< BACK"}
+        </Link>
         <div className={styles.movieDetail}>
           <div className={styles.detail__cover}>
             <img
