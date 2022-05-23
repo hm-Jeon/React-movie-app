@@ -12,24 +12,44 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 3rem;
-    padding: 0 10rem 5rem;
+    padding: 0 10rem 2rem;
 
     @media screen and (max-width: 1600px) {
-      padding: 0 5rem 5rem;
+      padding: 0 5rem 2rem;
     }
 
     @media screen and (max-width: 1400px) {
       grid-template-columns: 1fr;
       grid-gap: 2rem;
-      padding: 0 15rem 5rem;
+      padding: 0 15rem 2rem;
     }
 
     @media screen and (max-width: 1200px) {
-      padding: 0 10rem 5rem;
+      padding: 0 10rem 2rem;
     }
 
     @media screen and (max-width: 1000px) {
-      padding: 0 5rem 5rem;
+      padding: 0 5rem 2rem;
+    }
+  }
+
+  & > .pageList {
+    display: flex;
+    gap: 0.5em;
+    padding-bottom: 2rem;
+
+    .page {
+      font-size: 1.5rem;
+      opacity: 0.3;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .focus {
+      opacity: 0.8;
     }
   }
 }
